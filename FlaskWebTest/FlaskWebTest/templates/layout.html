@@ -10,6 +10,20 @@
 </head>
 
 <body>
+    <!-- Flash messages -->
+    <div>.</div>
+    {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+    {% for category, message in messages %}
+
+    <div id="myAlert" class="alert alert-{{ category }}">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong>Success!</strong> {{ message }}.Category :{{ category }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <!-- end Flash messages -->
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -22,9 +36,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('register') }}">Home</a></li>
-                    <li><a href="{{ url_for('register') }}">About</a></li>
-                    <li><a href="{{ url_for('register') }}">Contact</a></li>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('login') }}">Login</a></li> 
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
+                   
                 </ul>
             </div>
         </div>
@@ -41,6 +56,14 @@
     <script src="/static/scripts/jquery-1.10.2.js"></script>
     <script src="/static/scripts/bootstrap.js"></script>
     <script src="/static/scripts/respond.js"></script>
+    
+    <script type="text/javascript">
+   $(function(){
+      $(".close").click(function(){
+         $("#myAlert").alert('close');
+      });
+   });
+    </script>
     {% block scripts %}{% endblock %}
 
 </body>

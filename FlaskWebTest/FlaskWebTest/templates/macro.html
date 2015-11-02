@@ -1,0 +1,44 @@
+{% macro render_users(users,title) %}
+
+
+<!-- *************************************Userslist*******************************************  -->
+
+<br />
+<div class="list-group">
+    <ul>
+
+        <li class="list-group-item active">
+            <h4 class="list-group-item-heading">{{title}}</h4>
+        </li>
+        {% for user in users %}
+
+        <li class="list-group-item">
+            <h4 class="list-group-item-heading">nom : {{ user.username }}</h4>
+            <p class="list-group-item-text">email : {{ user.email }} </p>
+            <p class="list-group-item-text"> joined at : {{ user.joined_at }}</p>
+
+
+            <div class="container-right">
+                <span class="badge ">
+                    <a href="#" style="color:white;">update</a>
+                </span>
+                <span class="badge">
+                    <a href="#" style="color:white;">delete</a>
+                </span>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<ul class="pagination">
+    <li><a href="#">&laquo;</a></li>
+    <li class="active"><a href="#">1</a></li>
+    <li class="disabled"><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">&raquo;</a></li>
+</ul>
+
+<!-- **************************************************************************************  -->
+{% endmacro %}
