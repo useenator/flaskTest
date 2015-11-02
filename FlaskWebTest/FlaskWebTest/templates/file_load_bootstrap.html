@@ -1,0 +1,145 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+
+<p>Use this area to provide additional information.</p>
+
+
+
+<title>Upload new File</title>
+<h1>Upload new File</h1>
+
+<div class="form-group">
+    <div class="row">
+        <form action="" method=post enctype=multipart/form-data>
+            <p>
+               
+               <!-- 
+
+                <input  type=file name=file>
+                <input class="btn btn-primary btn-large" type=submit value=Upload>
+                
+                <label class="control-label">Select File</label>
+                <input id="input-1" type="file" class="file"> -->
+              
+
+                <div class="container" style="margin-top: 20px;">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-sm-6 col-12">
+                            <div class="jumbotron">
+                                <h1>Bootstrap File Input Demo</h1>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-sm-6 col-12">
+                            <h4>Standard Button</h4>
+                            <span class="file-input btn btn-primary btn-file">
+                                Browse&hellip; <input type="file" multiple>
+                            </span>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-12">
+                            <h4>
+                                Block-level Button
+                                <span class="file-input btn btn-block btn-primary btn-file">
+                                    Browse&hellip; <input type="file" multiple>
+                                </span>
+                        </div>
+
+                        <div class="col-lg-6 col-sm-6 col-12">
+                            <h4>Button Groups</h4>
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-default">Action 1</a>
+                                <a href="#" class="btn btn-default">Action 2</a>
+                                <span class="btn btn-primary btn-file">
+                                    Browse&hellip; <input type="file" multiple>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-12">
+                            <h4>Input Groups</h4>
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <span class="btn btn-primary btn-file">
+                                        Browse&hellip; <input type="file" multiple>
+                                    </span>
+                                </span>
+                                <input type="text" class="form-control" readonly>
+                            </div>
+                            <span class="help-block">
+                                Try selecting one or more files and watch the feedback
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+                     
+               
+        </form>
+    </div>
+</div>
+    <!-------------------------------------list img--------------------------------->
+
+    <div class="list-group">
+        <ul>
+
+
+            {% for img in listdir %}
+
+            <li class="list-group-item">
+
+                <p class="list-group-item-text">
+                    <a href="{{ dirname }}{{ img }}">
+                        <img src="{{ dirname }}{{ img }}" width="100">
+                        <!-- <img  src="/static/images/an.png" alt="OMG! Ubuntu!" height="85" title="Go to the home page">-->
+                    </a>
+                </p>
+                <br />
+                <h5 class="list-group-item-heading">File name : {{ img }} </h5>
+                <!--
+                <div class="container-right">
+                    <span class="badge ">
+                        <a href="#" style="color:white;">update</a>
+                    </span>
+                    <span class="badge">
+                        <a href="#" style="color:white;">delete</a>
+                    </span>
+                </div>
+                    -->
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    {% endblock %}
+
+
+
+    {% block scripts %}
+    <script type="text/javascript">
+      
+        $(document).on('change', '.btn-file :file', function() {
+          var input = $(this),
+              numFiles = input.get(0).files ? input.get(0).files.length : 1,
+              label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+          input.trigger('fileselect', [numFiles, label]);
+        });
+
+        $(document).ready( function() {
+            $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+
+                var input = $(this).parents('.input-group').find(':text'),
+                    log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+                if( input.length ) {
+                    input.val(log);
+                } else {
+                    if( log ) alert(log);
+                }
+
+            });
+        }); 
+      </script>
+    {% endblock %}

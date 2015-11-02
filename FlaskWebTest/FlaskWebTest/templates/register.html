@@ -6,7 +6,7 @@
 <h3>{{ message }}</h3>
 
 
-<form action="" method="post">
+<form action="" method="post" enctype=multipart/form-data>
     {{ form.hidden_tag() }}
 
     <div class="form-group">
@@ -101,6 +101,20 @@
                     </label>
                 </div>
             </div>
+        </div>
+        <div class="row">
+
+            <p>
+                
+                
+                <div class="row">
+                    <label label class="control-label">File upload</label><br />
+                </div>
+                <div class="row">
+                    <input style="display:inline-block;" class="btn btn-file btn-large " type=file name=file>
+                    <input style="display:inline-block;" class="btn btn-primary btn-large" type=submit value=Upload>
+
+                </div>
         </div>
 
         <div class="row">
