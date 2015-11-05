@@ -1,4 +1,4 @@
-import os
+﻿import os
 from flask import Flask, request, redirect, url_for,render_template
 from werkzeug import secure_filename
 
@@ -46,4 +46,11 @@ def upload_file():
             #return "file "+os.path.join(app.config['UPLOAD_FOLDER'], filename)+" uploaded"
             #redirect(url_for('uploaded_file',filename=filename))
     return render_template('upload.html')
+
+#UPLOAD_FOLDER = "E:\Documents\Visual Studio 2015\Projects\FlaskWebTest\FlaskWebTest\FlaskWebTest\static\butlerIMG"
+@app.route('/butler/',methods=['GET','POST'])
+def butler():
+    listimg=os.listdir("E:\Documents\Visual Studio 2015\Projects\FlaskWebTest\FlaskWebTest\FlaskWebTest\static\cover")#UPLOAD_FOLDER)
+    print(listimg)
+    return render_template('layoutB.html',listdir=listimg,dirname='/static/butlerIMG/')
     

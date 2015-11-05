@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>- My Flask Application</title>
+
+    <!--for butler styles-->
+    <link href="/static/content/butler.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body id="list_page" class="">
+    <div id="header_container">
+        <div id="header">
+            <a href="http://torrentbutler.eu/" id="logo">Torrent Butler</a>
+            <div id="trailing_header">
+                <div id="hd_switcher" class="switcher">
+                    <a href="http://torrentbutler.eu/" class="current" id="all_movies">All movies</a> <a href="http://torrentbutler.eu/hd" id="hd_only">Just <span>HD</span></a>
+                    <a href="http://torrentbutler.eu/tv" id="tv">TV Series</a>
+                </div>
+                <div id="priority_switcher" class="switcher">
+                    <a href="http://torrentbutler.eu/" class="current" id="popular">Popular</a> <a href="http://torrentbutler.eu/latest" id="latest_movies">Latest</a>
+                </div>
+                <iframe src="Movies%20&amp;%20Torrents%20_%20Torrent%20Butler_files/tweet_button.htm" title="Twitter Tweet Button" style="position: static; visibility: visible; width: 58px; height: 20px;" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" allowtransparency="true" scrolling="no" id="twitter-widget-0" frameborder="0"></iframe>
+                <iframe id="facebook_like_button" src="Movies%20&amp;%20Torrents%20_%20Torrent%20Butler_files/like.htm" scrolling="no" allowtransparency="true" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <style type="text/css">
+        #list_page #container {
+            top: 95px;
+        }
+    </style>
+
+
+
+
+
+    <div id="container" class="with_teaser">
+        <div id="movies" class="movies apply_rating indicate-from-0 show-from-0" data-total-pages="5966">
+            <a href="http://torrentbutler.eu/254128-san-andreas" class="movie gte0 gte1 gte2 gte3 gte4 gte5 gte6 gte7" data-rating="65" target="_blank">
+                <div class="poster">
+                    <img alt="San Andreas poster" data-x2="//image.tmdb.org/t/p/w342/2dzNV4IWtvdHQautlbyUYWUajIg.jpg" src="/static/butlerIMG/2dzNV4IWtvdHQautlbyUYWUajIg.jpg">
+                    <!--<img alt="San Andreas poster" data-x2="//image.tmdb.org/t/p/w342/2dzNV4IWtvdHQautlbyUYWUajIg.jpg" src="static/butlerIMG/2dzNV4IWtvdHQautlbyUYWUajIg.jpg">-->
+                </div>
+                <strong class="title">
+                    <strong>San Andreas</strong> <span>2015</span>
+                </strong>
+                <span class="hd">HD</span>
+                <span class="rating">
+                    <span style="width: 65.0%;">?????</span>
+                    ?????
+                </span>
+            </a>
+            <!--loop image from folder-->
+            {% for img in listdir %}
+            <a href="{{ dirname }}{{ img }}" class="movie gte0 gte1 gte2 gte3 gte4 gte5 gte6 gte7" data-rating="65" target="_blank">
+                <div class="poster">
+                    <img alt="San Andreas poster" src="{{ dirname }}{{ img }}">
+                    <!--<img alt="San Andreas poster" data-x2="//image.tmdb.org/t/p/w342/2dzNV4IWtvdHQautlbyUYWUajIg.jpg" src="static/butlerIMG/2dzNV4IWtvdHQautlbyUYWUajIg.jpg">-->
+                </div>
+                <strong class="title">
+                    <strong>File name : {{ img }} </strong> <span>2015</span>
+                </strong>
+                <span class="hd">HD</span>
+                <span class="rating">
+                    <span style="width: 65.0%;">?????</span>
+                    ?????
+                </span>
+            </a>
+            {% endfor %}
+            <!-- end loop image from folder-->
+
+        </div>
+
+      
+
+
+        
+
+        <p>Use this area to provide additional information.</p>
+
+    </div>
+    
+
+    <!--footer-->
+
+
+    <footer>
+        <p>&copy; - My Flask Application</p>
+    </footer>
+    <!--end footer-->
+
+</body>
+</html>
+
+

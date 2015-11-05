@@ -65,6 +65,26 @@
                     -->
             </li>
             {% endfor %}
+
+            <!--loop image from folder-->
+            {% for img in listdir %}
+            <a href="{{ dirname }}{{ img }}" class="movie gte0 gte1 gte2 gte3 gte4 gte5 gte6 gte7" data-rating="65" target="_blank">
+                <div class="poster">
+                    <img alt="San Andreas poster" src="{{ dirname }}{{ img }}">
+                    <!--<img alt="San Andreas poster" data-x2="//image.tmdb.org/t/p/w342/2dzNV4IWtvdHQautlbyUYWUajIg.jpg" src="static/butlerIMG/2dzNV4IWtvdHQautlbyUYWUajIg.jpg">-->
+                </div>
+                <strong class="title">
+                    <strong>File name : {{ img }} </strong> <span>2015</span>
+                </strong>
+                <span class="hd">HD</span>
+                <span class="rating">
+                    <span style="width: 65.0%;">?????</span>
+                    ?????
+                </span>
+            </a>
+            {% endfor %}
+            <!-- end loop image from folder-->
+
         </ul>
     </div>
 

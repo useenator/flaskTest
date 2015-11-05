@@ -13,6 +13,7 @@ from app import app,db
 
 from flask.ext.login import LoginManager
 from flask.ext.login import login_user, logout_user, current_user, login_required
+import os
 
 lm = LoginManager()
 lm.init_app(app)
@@ -34,6 +35,13 @@ def load_user(id):
 @app.before_request
 def before_request():
     g.user = current_user
+
+
+
+
+
+
+
 
 @app.route('/')
 @app.route("/index/",methods=['GET','POST'])
