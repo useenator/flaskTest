@@ -31,8 +31,8 @@
         </div>
 
 
-        <div class="row has-warning">
-            <label >pass</label>
+        <div class="row">
+            <label class="control-label">pass</label>
             <input class="form-control" type="password" name="password" placeholder='password' />
             {% for error in form.password.errors %}
             <span style="color: red;">[{{error}}]</span>
@@ -41,12 +41,11 @@
         </div>
 
 
-        <div class="row has-warning">
-            <label >pass</label>
-            <input class="form-control" type="password" name="passwordc" id="inputError" placeholder='password' />
+        <div class="row">
+            <label class="control-label">pass</label>
+            <input class="form-control" type="password" name="passwordc" placeholder='password' />
             {% for error in form.passwordc.errors %}
             <span style="color: red;">[{{error}}]</span>
-
             {% endfor %}<br />
         </div>
 
@@ -61,20 +60,10 @@
             </select>
             <!--/div-->
         </div>
-        <div class="row">
-            <label for="name">Text Area</label>
-            <textarea class="form-control" rows="3"></textarea>
-        </div>
-
-        <div class="row has-warning">
-            <label for="inputWarning">
-                Input with warning
-            </label>
-            <input type="text" class="form-control" id="inputWarning">
-
-        </div>
-        <!-- **************************************************************************************  -->
-               
+        <!--
+        <br>
+          <p><input  class="btn btn-default" type="submit" value="Register" size="25"/></p>
+          <button type="submit" class="btn btn-primary btn-large">Register</button>-->
         <!-- **************************************************************************************  -->
         <div class="row">
             <label class=" control-label">Gender</label>
@@ -97,7 +86,6 @@
 
         </div>
 
-
         <div class="row">
             <label class=" control-label" id="captchaOperation">Captcha</label>
             <input type="text" class="form-control" name="captcha" />
@@ -117,14 +105,14 @@
         <div class="row">
 
             <p>
-
-
+                
+                
                 <div class="row">
                     <label label class="control-label">File upload</label><br />
                 </div>
                 <div class="row">
                     <input style="display:inline-block;" class="btn btn-file btn-large " type=file name=file>
-                    <input style="display:inline-block;" class="btn btn-warning btn-large" type=submit value=Upload>
+                    <input style="display:inline-block;" class="btn btn-primary btn-large" type=submit value=Upload>
 
                 </div>
         </div>
@@ -132,10 +120,9 @@
         <div class="row">
             <!--class="form-group">-->
             <div class="col-xs-9 col-xs-offset-3">
-                <button type="submit" class="btn btn-warning btn-large" name="signup" value="Sign up">Register</button>
+                <button type="submit" class="btn btn-primary btn-large" name="signup" value="Sign up">Register</button>
             </div>
         </div>
-    </div>
 </form>
 
 

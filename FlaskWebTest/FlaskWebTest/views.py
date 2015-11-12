@@ -45,7 +45,6 @@ def before_request():
 
 @app.route('/')
 @app.route("/index/",methods=['GET','POST'])
-@app.route("/home/",methods=['GET','POST'])
 def index():
     #if g.user is not None and g.user.is_authenticated:
         #return redirect(url_for('index'))

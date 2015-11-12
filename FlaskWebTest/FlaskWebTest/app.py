@@ -54,10 +54,4 @@ if __name__ == '__main__':
     except ValueError:
         PORT = 5555
     #db.create_all()
-    #app.run(HOST, PORT)
-    '''
-        For testing purposes only.
-    '''
-    DEBUG = True
-    PORT=5555
-    app.run(debug=DEBUG, host=HOST, port=PORT)
+    app.run(HOST, PORT)
