@@ -1,46 +1,64 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>- My Flask Application</title>
 
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
     <!--for butler styles-->
     <link href="/static/content/butler.css" rel="stylesheet" type="text/css" />
+
+
 
 </head>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <body id="list_page" class="">
-    <div id="header_container">
-        <div id="header">
-            <a href="http://torrentbutler.eu/" id="logo">Torrent Butler</a>
-            <div id="trailing_header">
-                <div id="hd_switcher" class="switcher">
-                    <a href="http://torrentbutler.eu/" class="current" id="all_movies">All movies</a> <a href="http://torrentbutler.eu/hd" id="hd_only">Just <span>HD</span></a>
-                    <a href="http://torrentbutler.eu/tv" id="tv">TV Series</a>
+
+    <!-- Main Page Content -->
+    <div class="container">
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    {% if current_user.is_authenticated %}
+                    <a href="/" class="navbar-brand">HI {{current_user.username}}</a>
+                    {% else %}
+                    <a href="/" class="navbar-brand">Butler </a>
+                    {% endif %}
                 </div>
-                <div id="priority_switcher" class="switcher">
-                    <a href="http://torrentbutler.eu/" class="current" id="popular">Popular</a> <a href="http://torrentbutler.eu/latest" id="latest_movies">Latest</a>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        {% if current_user.is_authenticated %}
+                        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                        {% else %}
+                        <li><a href="{{ url_for('login') }}">Login</a></li>
+                        <li><a href="{{ url_for('register') }}">Register</a></li>
+                        {% endif %}
+                        <li><a href="{{ url_for('upload_file') }}">Uploads</a></li>
+                        <li><a href="{{ url_for('butler') }}">Butler</a></li>
+                        <li><a href="{{ url_for('butlerDetails') }}">Butler Details</a></li>
+                        <li><a href="{{ url_for('tomatos') }}">Tomatoes</a></li>
+
+                    </ul>
                 </div>
-                <iframe src="Movies%20&amp;%20Torrents%20_%20Torrent%20Butler_files/tweet_button.htm" title="Twitter Tweet Button" style="position: static; visibility: visible; width: 58px; height: 20px;" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" allowtransparency="true" scrolling="no" id="twitter-widget-0" frameborder="0"></iframe>
-                <iframe id="facebook_like_button" src="Movies%20&amp;%20Torrents%20_%20Torrent%20Butler_files/like.htm" scrolling="no" allowtransparency="true" frameborder="0"></iframe>
+
+
+
             </div>
         </div>
     </div>
@@ -62,7 +80,7 @@
         <div id="movies" class="movies apply_rating indicate-from-0 show-from-0" data-total-pages="5966">
             <a href="http://torrentbutler.eu/254128-san-andreas" class="movie gte0 gte1 gte2 gte3 gte4 gte5 gte6 gte7" data-rating="65" target="_blank">
                 <div class="poster">
-                    <img alt="San Andreas poster" data-x2="//image.tmdb.org/t/p/w342/2dzNV4IWtvdHQautlbyUYWUajIg.jpg" src="/static/butlerIMG/2dzNV4IWtvdHQautlbyUYWUajIg.jpg">
+                    <img alt="San Andreas poster"  src="/static/butlerIMG/2dzNV4IWtvdHQautlbyUYWUajIg.jpg">
                     <!--<img alt="San Andreas poster" data-x2="//image.tmdb.org/t/p/w342/2dzNV4IWtvdHQautlbyUYWUajIg.jpg" src="static/butlerIMG/2dzNV4IWtvdHQautlbyUYWUajIg.jpg">-->
                 </div>
                 <strong class="title">
@@ -82,7 +100,7 @@
                     <!--<img alt="San Andreas poster" data-x2="//image.tmdb.org/t/p/w342/2dzNV4IWtvdHQautlbyUYWUajIg.jpg" src="static/butlerIMG/2dzNV4IWtvdHQautlbyUYWUajIg.jpg">-->
                 </div>
                 <strong class="title">
-                    <strong>File name : {{ img }} </strong> <span>2015</span>
+                    <strong>File name : {{ dirname }}{{ img }} </strong> <span>2015</span>
                 </strong>
                 <span class="hd">HD</span>
                 <span class="rating">
@@ -103,8 +121,7 @@
         <p>Use this area to provide additional information.</p>
 
     </div>
-    
-
+   
     <!--footer-->
 
 
